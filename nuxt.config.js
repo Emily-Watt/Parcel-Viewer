@@ -1,4 +1,5 @@
 require('dotenv').config()
+var GOOGLE_MAPS = process.env.GOOGLE_MAPS_API;
 module.exports = {
   mode: 'spa',
   /*
@@ -39,7 +40,7 @@ module.exports = {
     '@nuxtjs/dotenv',
     ['nuxt-google-maps-module', {
       /* module options */
-      key: GOOGLE_MAPS_API , // Default
+      key: GOOGLE_MAPS , // Default
     }],
   ],
   /*

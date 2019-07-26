@@ -53,17 +53,16 @@
 
                 <hr>Mailing Address: <b>${MailingAddress}</b> 
                 
-                <hr> View Assessor's Map: <a href=http://www.acgov.org/MS/prop/index.aspx?PRINT_PARCEL=${APN} target='_blank'><b>View Parcel Info</b></a> 
+                <hr> View Assessor's Map: <a :href="`http://www.acgov.org/MS/prop/index.aspx?PRINT_PARCEL=${APN}`" target='_blank'><b>View Parcel Info</b></a> 
                 
-                <hr> View Assessor's Map: <a href=https://www.acgov.org/ptax_pub_app/RealSearchInit.do?searchByParcel=true&parcelNumber=${APN} target='_blank'><b>View Tax Info</b></a>
-
+                <!-- <hr> View Assessor's Map: <a href=`https://www.acgov.org/ptax_pub_app/RealSearchInit.do?searchByParcel=true&parcelNumber=${APN}` target='_blank'><b>View Tax Info</b></a> -->
     </div>
 </template>
 
 <script>
     export default {
         name: 'ParcelInfo',
-        props: ['book', 'page', 'apn', 'sub_parcel', 'sort_apn', 'parcelNum', 'year_built', 'tra_primary', 'tra_secondary', 'land', 'imps', 'clca_land', 'clca_imps', 'hoex', 'otex', 'total_net_value', 'latest_doc_prefix', 'latest_doc_series', 'latest_doc_date', 'use_code', 'econ_unit', 'situs_address'
+        props: ['book', 'page', 'apn', 'sub_parcel', 'sort_apn', 'parcelNum', 'year_built', 'tra_primary', 'tra_secondary', 'land', 'imps', 'clca_land', 'clca_imps', 'hoex', 'otex', 'total_net_value', 'latest_doc_prefix', 'latest_doc_series', 'latest_doc_date', 'use_code', 'econ_unit', 'situs_address',
         'mailing_address', 'parcel_info', 'tax_info'],
         
     }

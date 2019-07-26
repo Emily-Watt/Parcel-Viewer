@@ -1,22 +1,98 @@
 <template>
-   <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline',gutters:false"style="width:100%; height:100%;">
-            
-            <Sidebar></Sidebar>
-
-            <Map></Map>
-            
-        </div>
+   <section class="claro">
+     <div id="mainWindow" style="width:100%; height:100%;">
+              
+              <Sidebar />
+  
+              <Map />
+              
+    </div>
+   </section>
 </template>
 
+
+
 <script>
+const esriPackages = [
+  "dojo/ready",
+  "dojo/on",
+  "dojo/dom",
+  "dojo/dom-construct",
+  "dojo/parser",
+  "dijit/registry",
+  "dijit/layout/BorderContainer",
+  "dijit/layout/ContentPane",
+  "esri/map",
+  "esri/arcgis/utils",
+  "esri/domUtils",
+  "esri/dijit/Popup",
+  "esri/tasks/BufferParameters",
+  "esri/tasks/GeometryService",
+  "esri/geometry/webMercatorUtils",
+  "esri/geometry/Geometry",
+  "esri/geometry/Polygon", 
+  "esri/geometry/Extent",
+  "esri/SpatialReference",
+  "esri/dijit/Search",
+  "esri/layers/FeatureLayer",
+  "esri/InfoTemplate",
+  "esri/layers/ArcGISTiledMapServiceLayer",
+]
+const esriModules = [
+        ready,
+        on,
+        dom,
+        domConstruct,
+        parser,
+        registry,
+        BorderContainer,
+        ContentPane,
+        Map,
+        arcgisUtils,
+        domUtils,
+        Popup,
+        BufferParameters,
+        GeometryService,
+        webMercatorUtils,
+        Geometry,
+        Polygon,
+        Extent,   
+        SpatialReference,
+        Search,
+        FeatureLayer,
+        InfoTemplate,
+        ArcGISTiledMapServiceLayer
+]
+
+const options = { version: '3.29' };
+
+
 import Sidebar from '../components/Sidebar'
 import Map from '../components/Map'
+
+
+import { loadModules } from 'esri-loader'
 
 export default {
   components: {
     Sidebar,
     Map    
+  },
+  methods: {
+    initMap() {
+      esriLoader.loadModules(esriPackages, options)
+      .then(([...esriModules]) => {
+          console.log( "------>" , [...esriModules])
+      })
+      .catch( err => { console.error( err )});
+
+    }
+  
+  },
+  mounted(){
+
   }
+
 }
 </script>
 

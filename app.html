@@ -4,23 +4,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         {{ HEAD }}
         <link rel="stylesheet" href="https://js.arcgis.com/3.29/esri/css/esri.css">
+              
     </head>
 
-    <body {{ BODY_ATTRS }} class="claro">
+    <body {{ BODY_ATTRS }} >
 
         {{ APP }}
         
-        <script>
-        window.dojoConfig = {
-            packages: [
-            {
-                name: "vue",
-                location: "https://unpkg.com/vue/dist/",
-                main: "vue"
-            }
-            ]
-        };
-        </script>
-        <script src="https://js.arcgis.com/3.29/"></script>    
+        <script src='./assets/loader.min.js'></script> 
     </body>
 </html>
